@@ -90,7 +90,7 @@ Some visualization of the UAA scores by restatement status
 
 Since the dataset is not balanced, the visualisation is not very useful, especially for the SEC investigated restatements as the number is very small comparing to the number of observations with no restatement.
 
-![](Images/Picture4.png)![](Image/Picture5.png)
+![](Images/Picture4.png)![](Images/Picture5.png)
 
 #### The Hypothesis Tests
 
