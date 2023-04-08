@@ -39,7 +39,7 @@ The function will return a dataframe with 9 columns where each column represents
 
 Here is the function’s sample output tested using Google and a evaluation period of 2012 to 2021:
 
- ![](Image/Picture1.png)
+ ![](Images/Picture1.png)
 
 #### The Restatement Data and The Combined Dataset
 
@@ -69,7 +69,7 @@ column 91-100 (at): Asset Turnover
 
 What the final dataset looks like:
 
-![](Image/Picture2.png)
+![](Images/Picture2.png)
 
 ### Correlation Analysis Between Earning Qualities and Financial Restatements
 
@@ -79,7 +79,7 @@ The first thing we need to do is to flatten our dataset, so all years' data are 
 
 What the flattened dataset looks like:
 
-![](Image/Picture3.png)
+![](Images/Picture3.png)
 
 In order to test the relationship between EQ scores and both regular restatements and SEC investigated restatements, we need to create 2 different binary dataframes:
 
@@ -90,7 +90,7 @@ Some visualization of the UAA scores by restatement status
 
 Since the dataset is not balanced, the visualisation is not very useful, especially for the SEC investigated restatements as the number is very small comparing to the number of observations with no restatement.
 
-![](Image/Picture4.png)![](Image/Picture5.png)
+![](Images/Picture4.png)![](Images/Picture5.png)
 
 #### The Hypothesis Tests
 
@@ -137,11 +137,11 @@ We first need to make sec_2018 our target variable and change it to binary forma
 
 A quick look of our training dataset
 
-![](Image/Picture6.png)
+![](Images/Picture6.png)
 
 Correlation Matrix
 
-![](Image/Picture7.png)
+![](Images/Picture7.png)
  
 Now let's try a few prediction models to see the performance. 
 
@@ -162,7 +162,7 @@ SVM: Radial Basis Function kernel function, regularization parameter of 10 and a
 
 Here is the testing performance:
 
-![](Image/Picture8.png)
+![](Images/Picture8.png)
 
 As we can see from the graph, the SVM classifier clearly outperforms the other classification models, using the Radial Basis Function kernel function, regularization parameter of 10 and a scale gamma.
 
@@ -172,11 +172,11 @@ Since we cannot assume the linear relationships between our predictors and targe
 
 Here is the unpruned decision tree
 
-![](Image/Picture9.png)
+![](Images/Picture9.png)
 
 Based on this tree, we evaluated the entropy, or the information gain, and ranked the most important features:
 
-![](Image/Picture10.png)
+![](Images/Picture10.png)
 
 As expected, the most important indicator of the current year's reporting quality is the restatement status of the previous year, since restatements usually happen in a consecutive year. However, this feature might not be as useful as it looks, because when we are evaluating the earnings quality of a particular year, the previous year's statement might not have been restated yet, even if it has potential problems.
 
@@ -198,19 +198,19 @@ Here are the prediction results of the top 100 most risky companies of 2019, 202
 
 2019:
 
-![](Image/Picture11.png)
+![](Images/Picture11.png)
 
 2019 prediction accuracy:  0.9232142857142858  
 
 2020:
 
-![](Image/Picture12.png)
+![](Images/Picture12.png)
 
 2020 prediction accuracy:  0.9361607142857142
 
 2021:
 
-![](Image/Picture13.png)
+![](Images/Picture13.png)
 
 2021 prediction accuracy:  0.9535714285714286
 
@@ -235,7 +235,7 @@ The following steps were taken:
 
 Here is the out dataframe:
 
-![](Image/Picture14.png)
+![](Images/Picture14.png)
 
 #### Hypothesis Test Using the Newly Created EQ_index
 
@@ -261,13 +261,13 @@ Let us include this new index into our prediction model and see if we can improv
 
 Note: Now we have 110 columns (10 more EM index scores)
 
-![](Image/Picture15.png)
+![](Images/Picture15.png)
 
 Let us re-train our SVM model. This time, we will be training our model using data from 2012 to 2020.
 
 Since our model's input is 7 years rolling window, we first need to prepare our training dataset by stacking 7 years of rolling window data on top of each other, so our columns become t-6, t-5, t-4, t-3, t-2, t-1 and t, instead of specific years. We will be using year 2012 to 2018 as the first rolling window, 13 to 19 as the second rolling window and 14 to 20 as the third rolling window. After stacking the 3 rolling windows and renaming the columns, our training dataset looks something like this:
 
-![](Image/Picture16.png)
+![](Images/Picture16.png)
 
 Note that since each rolling window has 2241 rows, we now have 6723 rows after stacking them together.
 
@@ -277,7 +277,7 @@ Now, let us wrap up our model and research by producing a list of 5 companies of
 
 Here is the top 10 companies list produced by the model with the highest risk of restating their 2021 financial statements:
 
-![](Image/Picture17.png)
+![](Images/Picture17.png)
 
 Now, in order to narrow them down further, we will adopt some qualitative approach:
 
